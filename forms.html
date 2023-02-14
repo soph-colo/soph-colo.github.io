@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms</title>
+    </head>
+    <body>
+        <h1>Forms</h1>
+        <form id = "form1" action = ""> 
+            <label>First Name: </label>
+            <br/>
+            <input 
+                id = "firstName" 
+                name = "First Name" 
+                type = "text" 
+                value = "Sophia"
+                required
+            />
+
+            <br/>
+            <br/>
+            <label for = "quote"> quote: </label>
+            <br/>
+            <input id = "quote" name = "quote" placehold = "neither hope nor fear"/>
+            <br/>
+
+            <label for = "author"> author: </label>
+            <br/>
+            <input id = "author" name = "author" placehold = "voltaire"/>
+            <br/>
+            
+            <label for = "phone"> phone: </label>
+            <br/>
+            <input type = "tel" id = "phone" name = "phone" placehold = "867-5309" pattern = "[0-9]{3}-[0-9]{4}"/>
+            <br/>
+
+            <label for = "birthday"> birthday: </label>
+            <br/>
+            <input type = "date" id = "birthday" name = "birthday" placehold = "1955-11-05"/>
+            <br/>
+
+            <br/>
+            <label>Password: </label>
+            <br/>
+            <input name = "Password" type = "password"/>
+            <br/>
+  
+            <input name = "secret" type = "hidden" value>don't tell</input>
+
+            <br/>
+            <label>Favorite Color: </label>
+            <input name = "Favorite Color" type = "color"/>
+
+            <fieldset>
+                <legend>Status</legend>
+                
+                <input type = "radio" id = "alive" name = "status" value = "alive">
+                <label for = "alive"> alive</label>
+                <br/>
+
+                <input type = "radio" id = "dead" name = "status" value = "dead">
+                <label for = "dead"> dead</label>
+                <br/>
+
+                <input type = "radio" id = "undead" name = "status" value = "undead">
+                <label for = "undead"> undead</label>
+                <br/>
+
+                <input type = "radio" id = "undefined" name = "status" value = "undefined">
+                <label for = "undefined"> undefined</lanel>
+                <br/>
+
+                <input type = "radio" id = "idk" name = "status" value = "idk">
+                <label for = "idk"> idk</label>
+                <br/>
+
+            </fieldset>
+
+            <br/>
+            <input type = "submit"/>
+
+
+
+
+        </form>
+    </body>
+</html>
