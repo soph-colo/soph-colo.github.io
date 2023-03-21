@@ -1,57 +1,117 @@
 <html>
-    <head>
-        <title>JavaScript Demo</title>
-        <script>
-            // include your code here
+	<head>
+		<title>JavaScript...what could go wrong?</title>
+		<script>
+		// scripts go here if they need to execute before the document is fully loaded
+		</script>
 
-            /*
-                this code gets loaded before the body
+	</head>
+	<body>
+		<button onclick="DoSomething()">Click Me Second!</button>
+		<br/>
+		<button onclick="DoSomethingElse()">Click Me First and Third!</button>
+		<br/>
+		Enter a value: <input id="input"></input>
+		<button onclick="loop()">Compute hailstone</button>
+		<br/>
+		<image id="robot" src="assets/image-1.jpg" width="500" height="500"/>
+		<br/>
+		<button id="btnBigger">Bigger</button><button id="btnSmaller">Smaller</button>
+		<br/>
+		<button id="btnAddSomething">Add Something</button>
+		<div id="my-div"></div>
+		<div id="remove-button-div">
+		<button id="btnRemoveSomething">Remove Something</button>
+		</div>
+		<script>
+			"use strict";	
+			function DoSomething()
+			{
+				alert("foo");
+				globalVariable = "hi";
+				
+				return  "asdf";
+			}
+			function DoSomethingElse()
+			{
+				alert(globalVariable);
+			}
+			function loop()
+			{
+				var input = document.getElementById("input").value;
+				const result = hailstone(input);
+				alert(result);
+			}
+			function hailstone(x)
+			{
+				var count = 1;
+				while ( x > 1 )
+				{
+					count++
+					if ( x % 2 == 0 ) x = x/2;
+					else
+						x = 3*x+1;
+				}
+				return count;
+			}
 
-                only if code needs to execute before body is complete
-            */ 
-        </script>
-       <!--<script src = "scripts.js"/>-->
-    </head>
-    <body>
-        <button onclick = "DoSomething()">Click Me Second!</button>
-        <br/>
-        <button onclick = "DoSomethingElse()">Click Me First and Third!</button>
-        <br/>
-        Enter a value <input id = "input"></input>
-        <button onclick = "loop()">Compute Hailstone</button>
-        <script>
-            "use strict";
-            function DoSomething()
-            {
-                alert("foo");
-                globalVariable = "hi";
-                return "asdf";
-            }
-            function DoSomethingElse()
-            {
-                alert(globalVariable);
-            }
-            function loop()
-            {
-                var input = document.getElementById("input").value;
-                const result = hailstone(input);
-                alert(result);
-            }
-            function hailstone(x)
-            {
-                var count = 1;
-                while(x > 1)
-                {
-                    count++
-                    if(x % 2 == 0)
-                        x = x/2;
-                    else
-                        x = 3*x+1;
-                }
-                return count;
-            }
-   
+			// document.getElementById("robot").onclick = changePicture;
+			document.getElementById("btnBigger").onclick = handleBigger;
+			document.getElementById("btnSmaller").onclick = handleSmaller;
+			document.getElementById("robot").addEventListener("click", changePicture);
+			document.getElementById("robot").addEventListener("click", changePicture2);
 
-        </script>
-    </body>
+			document.getElementById("btnAddSomething").addEventListener("click", addSomethingHandler);
+			document.getElementById("btnRemoveSomething").addEventListener("click", removeSomethingHandler);
+
+			function addSomethingHandler(event)
+			{
+				var newP = document.createElement("p");
+				var myDiv = document.getElementById("my-div");
+				myDiv.appendChild(newP);
+			}
+
+			function removeSomethingHandler(event)
+			{
+				var addButton = document.getElementById("btnRemoveSomething");
+				var div = document.getElementById("remove-button-div");
+				div.removeChild(addButton);
+			}
+			function changePicture(event)
+			{
+				// for a list of all the event properties
+				// (because autocomplete isn't complete with javascript)
+				// https://www.w3schools.com/jsref/dom_obj_event_prop.asp
+
+				console.log(event.currentTarget.tagName);
+				event.currentTarget.src = "assets/image-2.jpg";
+			}
+			function changePicture2(event)
+			{
+				// for a list of all the event properties
+				// (because autocomplete isn't complete with javascript)
+				// https://www.w3schools.com/jsref/dom_obj_event_prop.asp
+
+				console.log(event.currentTarget.tagName);
+				alert("cp2");
+				// event.currentTarget.src = "assets/image-2.jpg";
+			}
+			
+			function handleSmaller(event)
+			{
+				console.log(event.currentTarget.tagName);
+				const image = document.getElementById("robot");
+				image.height = 100;
+				image.width = 100;
+			}
+			
+			function handleBigger(event)
+			{
+				console.log(event.currentTarget.tagName);
+				const image = document.getElementById("robot");
+				image.height = 1024;
+				image.width = 1024;
+			}
+		</script>
+	</body>
 </html>
