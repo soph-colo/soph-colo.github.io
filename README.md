@@ -1,8 +1,4 @@
-Delay is preferable to error.  
--- Thomas Jefferson
+# soph-colo
 
-It is never too late to be who you might have been.  
--- George Eliot 
+- junior cs/ds student @ JCU
 
-To live is the rarest thing in the world. Most people exist, that is all.  
--- Oscar Wilde
